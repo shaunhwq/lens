@@ -2,10 +2,12 @@
 
 ## Docker Setup
 ```
-docker b uild -t vqa_lens .
+docker build -t vqa_lens .
 docker run -it -p 4051:4051 -v /path/to/.cache/huggingface:/root/.cache/huggingface vqa_lens
 ```
 - Mounted huggingface cache so that we don't need to download models each time we run
+
+## Authors Repo
 
 [[Blog]](https://contextual.ai/introducing-lens) [[Demo]](https://lens.contextual.ai/) [[Paper]](https://arxiv.org/abs/2306.16410) [[Colab]](https://colab.research.google.com/github/ContextualAI/lens/blob/main/notebooks/example_usage.ipynb)
 
