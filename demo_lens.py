@@ -20,9 +20,9 @@ if __name__ == "__main__":
     lens.eval()
     processor = LensProcessor()
     tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-small", truncation_side ='left', padding=True)
-    LLM_model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-small")
-    LLM_model.eval()
-    LLM_model.to(args.device)
+    llm_model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-small")
+    llm_model.eval()
+    llm_model.to(args.device)
 
     rgb_image = Image.open(args.input_image).convert('RGB')
 
@@ -32,7 +32,7 @@ if __name__ == "__main__":
         input_ids = tokenizer(samples["prompts"], return_tensors="pt").input_ids
         if "cuda" in args.device:
             input_ids = input_ids.to(args.device)
-        outputs = LLM_model.generate(input_ids)
+        outputs = llm_model.generate(input_ids)
         answer = tokenizer.decode(outputs[0])
 
     print(answer)
