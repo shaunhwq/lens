@@ -3,7 +3,7 @@
 ## Docker Setup
 ```
 docker build -t vqa_lens .
-docker run -it -p 4051:4051 -v /path/to/.cache/huggingface:/root/.cache/huggingface vqa_lens
+docker run -it -p 4051:4051 -v /path/to/.cache/huggingface:/root/.cache/huggingface --gpus all vqa_lens
 ```
 - Mounted huggingface cache so that we don't need to download models each time we run
 
